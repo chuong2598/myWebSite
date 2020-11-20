@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import './css/custom-navbar.css'
+import MyNavBar from './components/MyNavBar'
+import Info from './components/Info'
+import AboutMe from './components/AboutMe'
+import Project from './components/Project'
+import { Button } from 'react-bootstrap';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  constructor(props){
+    super(props)
+    this.myRef = React.createRef()  
+  }
+
+navigateSection = (section) => {
+  section = document.getElementById(section)
+  console.log(section)
+  if (section != null){
+    section.scrollIntoView({behavior: 'smooth'})
+  }
+  else {
+    alert("Have not implemented :)")
+  }
+}
+
+
+
+  render() {
+    return (
+      <div id = "home">
+        <MyNavBar onSelectSection = {this.navigateSection}/>
+        <Info/>
+        <div id = "about-me" ref="">
+          <AboutMe />
+        </div>
+        <div id = "project">
+          <Project ref={this.myRef} />
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
