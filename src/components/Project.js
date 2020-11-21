@@ -3,6 +3,8 @@ import { Container, Row } from 'react-bootstrap';
 import EnglishMaster from './projects/EnglishMater'
 import Elab from './projects/Elab';
 import RouteCaster from './projects/RouteCaster';
+import TextClassification from './projects/TextClassification';
+
 import '../css/project.css'
 
 class Project extends Component {
@@ -30,6 +32,10 @@ class Project extends Component {
                     <br/><br/><br/>
                     <Row>
                         <RouteCaster/>
+                    </Row>
+                    <br/><br/><br/>
+                    <Row>
+                        <TextClassification/>
                     </Row>
 
                 </Container>
